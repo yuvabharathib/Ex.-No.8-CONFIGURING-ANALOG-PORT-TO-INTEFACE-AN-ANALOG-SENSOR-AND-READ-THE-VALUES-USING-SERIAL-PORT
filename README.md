@@ -1,16 +1,18 @@
  
 
 
-##Ex. No. :7
-Date: 
+### Ex. No. :7
+## Date: 
 ### Interfacing LM35 Temperature sensor and calculate the sensitivity of the output
 
-## Aim: To configure internal ADC for   LPC2148 ARM 7  for interfacing LM35 temperature sensor.
-Components required: Proteus ISIS professional suite, Kiel μ vision 5 Development environment 
+## Aim: 
+To configure internal ADC for   LPC2148 ARM 7  for interfacing LM35 temperature sensor.
+## Components required:
+Proteus ISIS professional suite, Kiel μ vision 5 Development environment 
  ![image](https://user-images.githubusercontent.com/36288975/200110365-9e1f8a55-c943-43f1-94de-60003f6308b7.png)
   
 Figure-01 ADC pins in LPC2148 ARM 7 controller 
- Theory 
+ ## Theory 
 Analog to Digital Converter (ADC) is used to convert analog signal into digital form. LPC2148 has two inbuilt 10-bit ADC i.e. ADC0 & ADC1.
 •	ADC0 has 6 channels &ADC1 has 8 channels.
 •	Hence, we can connect 6 distinct types of input analog signals to ADC0 and 8 distinct types of input analog signals to ADC1.
