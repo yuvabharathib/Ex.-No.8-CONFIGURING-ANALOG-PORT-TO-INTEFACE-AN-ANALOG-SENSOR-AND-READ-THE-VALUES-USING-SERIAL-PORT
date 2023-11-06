@@ -31,6 +31,25 @@ Voltage resolution (Quantum): equal to its full-scale voltage divided by the num
 An 8-bit ADC with 3.3V of full-scale voltage has a quantum equal to: 3.3V / 256 levels = 12.9mV.
 The quantum is the minimum voltage value that ADC can discretize. When an analog value being sampled falls between two digital levels the analog signal will be represented by the nearest digital value. This causes a very slight error called “quantization error”.
 
+Different Ways To Read STM32 ADC   
+ 
+
+1 – The Polling Method
+
+It’s the easiest way in code in order to perform an analog to digital conversion using the ADC on an analog input channel. However, it’s not an efficient way in all cases as it’s considered to be a blocking way of using the ADC. As in this way, we start the A/D conversion and wait for the ADC until it completes the conversion so the CPU can resume processing the main code.
+
+2 – The Interrupt Method
+
+The interrupt method is an efficient way to do ADC conversion in a non-blocking manner, so the CPU can resume executing the main code routine until the ADC completes the conversion and fires an interrupt signal so the CPU can switch to the ISR context and save the conversion results for further processing.
+
+However, when you’re dealing with multiple channels in a circular mode or so, you’ll have periodic interrupts from the ADC that are too much for the CPU to handle. This will introduce jitter injection and interrupt latency and all sorts of timing issues to the system. This can be avoided by using DMA.
+
+3 – The DMA Method
+
+Lastly, the DMA method is the most efficient way of converting multiple ADC channels at very high rates and still transfers the results to the memory without CPU intervention which is so cool and time-saving technique.
+
+ 
+
 The STM32 Nucleo Board
 The STM32 development board in use belongs to the NUCLEO family: the NUCLEO-G431RB is equipped with an STM32G431RB microcontroller, led, buttons, and connectors (Arduino shield compatible). It provides an easy and fast way to build prototypes.
 
@@ -39,10 +58,35 @@ STM32 NUCLEO-G431RB development board.
 The STM32G071RB is a mainstream ARM Cortex-M4 microcontroller with 128KB flash memory, most common communication interfaces (I2C, SPI, UART, …), and peripherals (ADC, DAC, PWM, Timer, …).
 
 
+SOIL MOISTURE SENSOR 
+Calculations
+Capacity is calculated using the following expression:
 
-Potentiometer pinout.  
-The output signal will be connected to one of the 6 analog inputs of the NUCLEO board (marked with Ax). VCC and GND will be connected to the power section of the board: 3.3V and GND, respectively.
 
+
+Let the plates have dimensions  w  = 12 mm; l  = 35 mm, then the area S  = 12*35 = 420 mm², and the distance between them d  = 3 mm, then the calculated electrical capacitance C =  1 pF .
+
+Capacitance calculation (dielectric: air)
+The geometric dimensions (area) S , as well as the distance between the plates d , do not change. To change the capacitance, it remains to change the substance between the plates, as long as it is air ε = 1 . What do you think? relative dielectric constant  of water ? Sources show ε = 81 .
+
+Capacitance calculation (dielectric: water)
+Full immersion in water will increase the capacity by 81 times ! The calculated capacitance C will no longer be 1 pF, but  100 pF .
+
+
+
+Thus, by smoothly immersing this homemade condenser, the capacity will also smoothly and proportionally change, which makes it possible to effectively monitor the state of humidity.
+
+Converting a change in capacitance into a change in voltage
+By connecting a capacitor in series with a resistor, we obtain a low-pass filter ( LPF ).
+
+
+
+This results in a voltage divider where the resistance of the upper arm R1 does not change, but the capacitance of the lower arm C1 changes depending on the frequency.
+
+
+
+But since the signal frequency will remain unchanged, we will plot the dependence of capacitance on capacitance ( C = 1-100 pF):
+  
 
   
  ## Procedure:
