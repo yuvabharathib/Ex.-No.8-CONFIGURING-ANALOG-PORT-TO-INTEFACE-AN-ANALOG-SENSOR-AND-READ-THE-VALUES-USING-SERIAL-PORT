@@ -66,20 +66,21 @@ Setup STM32 project. Image by author.
 After creating the project, a page will appear showing all the necessary features needed to configure the MCU.
 
 STM32Cube device configuration. Image by author.
-The STM32G431RB has 2 ADCs (named ADC1 and ADC2) with a maximum sampling rate of 4MHz (0.25us) and up to 19 multiplexed channels. Resolution of 12-bit with a full-scale voltage range of up to 3.6V.
+The STM32G071RB has 2 ADCs (named ADC1 and ADC2) with a maximum sampling rate of 4MHz (0.25us) and up to 19 multiplexed channels. Resolution of 12-bit with a full-scale voltage range of up to 3.6V.
 With channels, it is possible to organize the conversions in a group. A group consists of a sequence of conversions that can be done on any channel and in any order, also with different sampling rates.
 
 The Analog connector of the development board is connected to pins: PA0, PA1, PA4, PB0, PC1, and PC0 of the microcontroller.
+![image](https://github.com/vasanthkumarch/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/36288975/152f51fd-f09b-4d65-8744-9492c86f1720)
 
-
-Pinout of the analog connector — NUCLEO-G431RB. Image by author.
+Pinout of the analog connector — NUCLEO-G431RB. .
 The potentiometer is wired to the PA0 pin and so the ADC1 Channel 1 (ADC1_IN1) will be used to convert the analog value.
 
 Open the Pinout&Configuration tab and click on Analog → ADC1 in the Categories section.
-In the channel 1 (IN1) dropdown menu select Single-ended.
+In the channel 1 (IN0) dropdown menu select Single-ended.
 The ADC can be configured to measure the voltage difference between one pin and the ground (Single-ended configuration) or between two pins (Differential configuration).
+![image](https://github.com/vasanthkumarch/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/36288975/84e5114c-ff8b-4058-8ad7-760bcf06f931)
 
-ADC1 mode panel. Image by author.
+ADC1 mode panel.  
 Leave the ADC1 Configuration panel with the default values and save the project.
 * Clock prescaler: Synchronous clock mode divided by 4
 ADC Clock derives from the system clock (SYCLK) that is set to the maximum frequency: 170MHz.
