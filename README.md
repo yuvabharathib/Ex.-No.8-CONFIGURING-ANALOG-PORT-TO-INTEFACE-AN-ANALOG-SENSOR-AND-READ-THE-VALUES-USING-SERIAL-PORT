@@ -11,10 +11,7 @@ To configure internal ADC for interfacing an analog sensor and read the values o
 STM 32 CUBE IDE , STM32 NUCLEO BOARD, CONNECTING CABLE, SERIAL PORT UTILITY 
  ## Theory 
 
-Potentiometer and ADC. Image by author.
-Analog-to-Digital Converter: the basics
-If you have a microphone the audio it picks up is analog. As explained before, you can use an ADC to move from real-world analog to software-friendly digital signals.
-
+ 
 ADCs are characterized by:
 
 Resolution [bit]: the number of bits to represent a digital signal.
@@ -137,9 +134,14 @@ These sensors normally used to check volumetric water content, and another group
 
 Soil Moisture Sensor Pin Configuration
 The FC-28 soil moisture sensor includes 4-pins
+![image](https://github.com/vasanthkumarch/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/36288975/14ce9ba1-6f2e-4080-adee-bfb695123d34)
 
 soil-moisture-sensor
 soil-moisture-sensor
+
+
+![image](https://github.com/vasanthkumarch/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/36288975/7ae64062-717c-4b18-b5c8-3664f229d2d5)
+
 VCC pin is used for power
 A0 pin is an analog output
 D0 pin is a digital output
@@ -154,7 +156,7 @@ This module also includes a potentiometer that will fix the threshold value, & t
 
 ## Result :
  
-## Output screen shots :
+## Output  :
 
 
 
