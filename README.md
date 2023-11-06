@@ -1,7 +1,7 @@
  
 
 
-### Ex. No. :8
+### Ex. No. :8 CONFIGURING ANALOG PORT TO INTEFACE AN ANALOG SENSOR AND READ THE VALUES USING SERIAL PORT
 ## Date: 
 ###  
 
@@ -20,8 +20,9 @@ ADCs are characterized by:
 Resolution [bit]: the number of bits to represent a digital signal.
 Sampling rate [Hz]: how fast they work.
 
-ADC Symbol. Image by author.
-An 8-bit ADC with 1 kHz sampling rate has 256 (2⁸) levels in its digital signal and takes 1 millisecond to convert an analog signal into its digital form.
+ADC Symbol. 
+An 10-bit ADC with 1 kHz sampling rate has 256 (2⁸) levels in its digital signal and takes 1 millisecond to convert an analog signal into its digital form.
+![image](https://github.com/vasanthkumarch/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/36288975/bdbe1fe6-6913-46ca-aefd-726b6a406cf6)
 
 An analog signal is expressed in voltage [V] and other important features are:
 
@@ -34,27 +35,17 @@ The STM32 Nucleo Board
 The STM32 development board in use belongs to the NUCLEO family: the NUCLEO-G431RB is equipped with an STM32G431RB microcontroller, led, buttons, and connectors (Arduino shield compatible). It provides an easy and fast way to build prototypes.
 
 
-STM32 NUCLEO-G431RB development board. Image by author.
-The STM32G431RB is a mainstream ARM Cortex-M4 microcontroller with 128KB flash memory, most common communication interfaces (I2C, SPI, UART, …), and peripherals (ADC, DAC, PWM, Timer, …).
+STM32 NUCLEO-G431RB development board.  
+The STM32G071RB is a mainstream ARM Cortex-M4 microcontroller with 128KB flash memory, most common communication interfaces (I2C, SPI, UART, …), and peripherals (ADC, DAC, PWM, Timer, …).
 
 
-STM32G431RB Block Diagram. Image by author.
-Potentiometer circuit
-The potentiometer has 3 terminals:
 
-VCC: Power supply
-GND: Ground
-Ouput: The analog signal to read. It produces a voltage value from 0V to VCC according to the position of the knob.
-
-Potentiometer pinout. Image by author.
+Potentiometer pinout.  
 The output signal will be connected to one of the 6 analog inputs of the NUCLEO board (marked with Ax). VCC and GND will be connected to the power section of the board: 3.3V and GND, respectively.
 
 
-Circuit with potentiometer, breadboard, and NUCLEO board. Image by author.
-Let’s setup the Cube!
-The Nucleo board is compatible with the STM32Cube ecosystem: a combination of software tools and embedded software libraries for STM32 microcontrollers.
-
-Let’s start!
+  
+ ## Procedure:
 
 Open STM32CubeIDE Software and go to File → New… → STM32 Project.
 Click on Board Selector and select NUCLEO-G431RB in the dropdown menu.
@@ -65,15 +56,15 @@ Insert a project name and select STM32Cube as Targeted Project Type.
 Setup STM32 project. Image by author.
 After creating the project, a page will appear showing all the necessary features needed to configure the MCU.
 
-STM32Cube device configuration. Image by author.
+STM32Cube device configuration. 
 The STM32G071RB has 2 ADCs (named ADC1 and ADC2) with a maximum sampling rate of 4MHz (0.25us) and up to 19 multiplexed channels. Resolution of 12-bit with a full-scale voltage range of up to 3.6V.
 With channels, it is possible to organize the conversions in a group. A group consists of a sequence of conversions that can be done on any channel and in any order, also with different sampling rates.
 
 The Analog connector of the development board is connected to pins: PA0, PA1, PA4, PB0, PC1, and PC0 of the microcontroller.
 ![image](https://github.com/vasanthkumarch/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/36288975/152f51fd-f09b-4d65-8744-9492c86f1720)
 
-Pinout of the analog connector — NUCLEO-G431RB. .
-The potentiometer is wired to the PA0 pin and so the ADC1 Channel 1 (ADC1_IN1) will be used to convert the analog value.
+Pinout of the analog connector — NUCLEO-G071RB. .
+The potentiometer is wired to the PA0 pin and so the ADC1 Channel 0 (ADC1_IN0) will be used to convert the analog value.
 
 Open the Pinout&Configuration tab and click on Analog → ADC1 in the Categories section.
 In the channel 1 (IN0) dropdown menu select Single-ended.
@@ -85,19 +76,19 @@ Leave the ADC1 Configuration panel with the default values and save the project.
 * Clock prescaler: Synchronous clock mode divided by 4
 ADC Clock derives from the system clock (SYCLK) that is set to the maximum frequency: 170MHz.
 Divide by 4 means to set the maximum ADC sampling frequency (170MHz/4 = 42.5MHz).
-* Resolution: ADC 12-bit resolution
-Output digital signal has 4096 levels. The voltage full-scale range is equal to the microcontroller supply voltage (3.3V).
+* Resolution: ADC 10-bit resolution
+Output digital signal has 1024 levels. The voltage full-scale range is equal to the microcontroller supply voltage (3.3V).
 
-ADC1 configuration panel. Image by author.
+ADC1 configuration panel.  .
 After saving the configuration, the STM32CubeIDE will generate all the project files according to the user inputs.
 
 
 
-## Procedure:
 
 ##  Program 
+
+
  
-## 
 
 ## Result :
  
