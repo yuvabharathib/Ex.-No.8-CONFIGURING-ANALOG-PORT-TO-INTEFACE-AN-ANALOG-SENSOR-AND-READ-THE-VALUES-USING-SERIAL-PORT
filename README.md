@@ -126,7 +126,25 @@ Output digital signal has 1024 levels. The voltage full-scale range is equal to 
 ADC1 configuration panel.  .
 After saving the configuration, the STM32CubeIDE will generate all the project files according to the user inputs.
 
+The soil moisture sensor is one kind of sensor used to gauge the volumetric content of water within the soil. As the straight gravimetric dimension of soil moisture needs eliminating, drying, as well as sample weighting. These sensors measure the volumetric water content not directly with the help of some other rules of soil like dielectric constant, electrical resistance, otherwise interaction with neutrons, and replacement of the moisture content.
 
+The relation among the calculated property as well as moisture of soil should be adjusted & may change based on ecological factors like temperature, type of soil, otherwise electric conductivity. The microwave emission which is reflected can be influenced by the moisture of soil as well as mainly used in agriculture and remote sensing within hydrology.
+
+
+soil-moisture-sensor-device
+soil-moisture-sensor-device
+These sensors normally used to check volumetric water content, and another group of sensors calculates a new property of moisture within soils named water potential. Generally, these sensors are named as soil water potential sensors which include gypsum blocks and tensiometer.
+
+Soil Moisture Sensor Pin Configuration
+The FC-28 soil moisture sensor includes 4-pins
+
+soil-moisture-sensor
+soil-moisture-sensor
+VCC pin is used for power
+A0 pin is an analog output
+D0 pin is a digital output
+GND pin is a Ground
+This module also includes a potentiometer that will fix the threshold value, & the value can be evaluated by the comparator-LM393. The LED will turn on/off based on the threshold value.
 
 
 ##  Program 
