@@ -6,7 +6,7 @@
 ###  
 
 ## Aim: 
-To configure internal ADC for interfacing an analog sensor and read the values on the com port 
+To configure ADC channel for interfacing an analog sensor and read the values on the com port 
 ## Components required:
 STM 32 CUBE IDE , STM32 NUCLEO BOARD, CONNECTING CABLE, SERIAL PORT UTILITY , ANALOG SENSOR - 3.3V TYPE 
  ## Theory 
