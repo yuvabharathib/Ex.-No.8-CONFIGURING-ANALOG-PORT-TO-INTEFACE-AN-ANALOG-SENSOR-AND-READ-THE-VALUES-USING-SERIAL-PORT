@@ -1,4 +1,4 @@
- 
+**** 
 
 
 ### Ex. No. :8 CONFIGURING ANALOG PORT TO INTEFACE AN ANALOG SENSOR AND READ THE VALUES USING SERIAL PORT
@@ -163,3 +163,4 @@ This module also includes a potentiometer that will fix the threshold value, & t
 
 
 
+****
